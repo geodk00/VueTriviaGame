@@ -1,17 +1,20 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// This css-file is almost empty
+// Only doing it like this as an example for myself in the future
+import './assets/css/styles.css'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  computed: {
+    score () {
+      return this.$store.getters.getScore
+    }
   }
 }
 </script>
@@ -23,6 +26,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
