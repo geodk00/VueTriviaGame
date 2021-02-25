@@ -1,24 +1,41 @@
 <template>
-  <div class="hello">
+  <div>
     <h1>🍾 Results 🎉</h1>
-    <h2>Score: {{ this.score }}</h2>
+    <h2>Score: {{ score }}</h2>
     <router-link to="/">Play Again</router-link>
-    <ResultQuestion v-for="question in this.$store.state.questions" :key="question.id" v-bind:question="question" v-bind:index="question.id"/>
+    <ResultQuestionComponent
+          v-for="question in questions"
+          :key="question.id"
+          :question="question"
+          :questionIndex="question.id"
+    />
   </div>
 </template>
 
 <script>
-import ResultQuestion from './../components/ResultQuestion'
+/*
+  Component responsible for the overall view
+  when showing the result to the user
+
+  Delegates the display of questions to
+  ResultQuestionComponent
+
+  Navigates to '/' if the user hasn't answered
+  all questions
+*/
+
+import ResultQuestionComponent from './../components/result/ResultQuestionComponent.vue'
 export default {
   name: 'ResultView',
   components: {
-    ResultQuestion
-  },
-  props: {
+    ResultQuestionComponent
   },
   computed: {
     score () {
       return this.$store.getters.getScore
+    },
+    questions () {
+      return this.$store.state.questions
     }
   },
   beforeRouteEnter (to, from, next) {
@@ -40,8 +57,6 @@ a {
   border-radius: 5px;
   padding: 10px;
   box-shadow: 1px 1px 2px black;
-}
-a:hover {
 }
 
 a:active {

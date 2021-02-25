@@ -1,21 +1,27 @@
 <template>
-  <li v-bind:class="{
+  <div :class="{
                 wrong: !answer.correct && answer.chosen,
                 correct: answer.correct && answer.chosen,
                 right: answer.correct && !answer.chosen
                 }">
     {{this.answer.answer}}
-  </li>
+  </div>
 </template>
 
 <script>
+/*
+  Component responsible for showing
+  an answer result.
+
+  Takes in the answer via a prop.
+
+  changes the class of the answer based
+  on if the answer is correct and if it was chosen
+  by the player
+*/
+
 export default {
-  name: 'Answer',
-  methods: {
-    handleClick () {
-      this.$emit('answer', this.answer)
-    }
-  },
+  name: 'AnswerComponent',
   props: {
     answer: Object
   }
@@ -23,11 +29,10 @@ export default {
 </script>
 
 <style scoped>
-li {
+div {
   font-size: 1.2rem;
   padding: 8px;
   border-radius: 5px;
-  text-decoration: none;
   margin: 5px;
   background: #42b983;
 }
