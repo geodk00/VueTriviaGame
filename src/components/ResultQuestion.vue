@@ -54,14 +54,16 @@ p {
   /*border: 1px solid #56db9f;*/
   box-shadow: 1px 1px rgb(161, 157, 161);
   border-radius: 10px;
-  max-width: 40%;
+  width: 40%;
+  min-width: 500px;
   margin: auto;
   padding: 10px;
 }
 
 ul {
   list-style-type: none;
-  max-width: 40%;
+  width: 40%;
+  min-width: 500px;
   margin: auto;
   padding-left: 0;
   margin-top: 10px;

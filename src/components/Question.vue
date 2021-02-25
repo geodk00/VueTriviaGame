@@ -71,7 +71,8 @@ p {
   background-color: #42b983;
   box-shadow: 1px 1px rgb(161, 157, 161);
   border-radius: 10px;
-  max-width: 40%;
+  width: 40%;
+  min-width: 500px;
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
@@ -79,7 +80,8 @@ p {
 }
 
 .answerContainer {
-  max-width: 40%;
+  width: 40%;
+  min-width: 500px;
   margin: auto;
   margin-top: 10px;
 
