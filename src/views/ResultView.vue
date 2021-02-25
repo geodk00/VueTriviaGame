@@ -2,6 +2,7 @@
   <div class="hello">
     <h1>🍾 Results 🎉</h1>
     <h2>Score: {{ this.score }}</h2>
+    <router-link to="/">Play Again</router-link>
     <ResultQuestion v-for="question in this.$store.state.questions" :key="question.id" v-bind:question="question" v-bind:index="question.id"/>
   </div>
 </template>
@@ -32,4 +33,18 @@ export default {
 </script>
 
 <style scoped>
+a {
+  color: black;
+  text-decoration: none;
+  background: #42b983;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 1px 1px 2px black;
+}
+a:hover {
+}
+
+a:active {
+  box-shadow: 0px 0px 2px black;
+}
 </style>

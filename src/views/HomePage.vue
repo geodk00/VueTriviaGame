@@ -27,6 +27,7 @@ export default {
     async begin (event) {
       this.fetching = true
       console.log(event)
+      this.$store.commit('reset')
       await this.$store.dispatch('fetchQuestions', event)
       this.$router.push('/question/0')
     }

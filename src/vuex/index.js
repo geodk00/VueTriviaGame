@@ -8,8 +8,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     questions: [],
-    answers: [],
-    ready: false
+    answers: []
   },
   getters: {
     getScore: state => {
@@ -35,6 +34,10 @@ export default new Vuex.Store({
     answerQuestion (state, answer) {
       // make sure vue knows about the update
       state.answers.splice(answer.index, 0, answer.selectedAnswer)
+    },
+    reset (state) {
+      state.questions = []
+      state.answers = []
     },
     setReady (state) {
       state.ready = true
