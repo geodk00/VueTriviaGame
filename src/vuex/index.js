@@ -16,15 +16,9 @@ export default new Vuex.Store({
         return accumulator + (cur === state.questions[index].correct_answer ? 10 : 0)
       }, 0)
     },
-    getNumberOfQuestions: state => {
-      return state.questions.length
-    },
-    getNumberOfAnswers: state => {
-      return state.answers.length
-    },
-    getPercentageDone: state => {
-      return (state.answers.length / state.questions.length) * 100
-    }
+    getNumberOfQuestions: state => { return state.questions.length },
+    getNumberOfAnswers: state => { return state.answers.length },
+    getPercentageDone: state => { return (state.answers.length / state.questions.length) * 100 }
   },
   mutations: {
     addQuestion (state, question) {
@@ -46,6 +40,7 @@ export default new Vuex.Store({
   actions: {
     async fetchQuestions (state, options) {
       try {
+        // fetch base64 encoded strings so we don't have to handle html entities in the strings
         options = { ...options, encode: 'base64' }
         const questionResponse = await axios.get('https://opentdb.com/api.php', { params: options })
 
