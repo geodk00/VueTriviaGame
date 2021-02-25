@@ -55,7 +55,7 @@ p {
   box-shadow: 1px 1px rgb(161, 157, 161);
   border-radius: 10px;
   width: 40%;
-  min-width: 500px;
+  min-width: 300px;
   margin: auto;
   padding: 10px;
 }
@@ -63,7 +63,7 @@ p {
 ul {
   list-style-type: none;
   width: 40%;
-  min-width: 500px;
+  min-width: 300px;
   margin: auto;
   padding-left: 0;
   margin-top: 10px;

@@ -72,7 +72,7 @@ p {
   box-shadow: 1px 1px rgb(161, 157, 161);
   border-radius: 10px;
   width: 40%;
-  min-width: 500px;
+  min-width: 300px;
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
@@ -81,7 +81,7 @@ p {
 
 .answerContainer {
   width: 40%;
-  min-width: 500px;
+  min-width: 300px;
   margin: auto;
   margin-top: 10px;
 
