@@ -1,26 +1,27 @@
 <template>
   <div>
-  <span>↓</span>
-  <span style="--delay: 0.1s">↓</span>
-  <span style="--delay: 0.3s">↓</span>
-  <span style="--delay: 0.4s">↓</span>
-  <span style="--delay: 0.5s">↓</span>
-</div>
+    <span>↓</span>
+    <span style="--delay: 0.1s">↓</span>
+    <span style="--delay: 0.3s">↓</span>
+    <span style="--delay: 0.4s">↓</span>
+    <span style="--delay: 0.5s">↓</span>
+  </div>
 </template>
 
 <script>
+/*
+  Component responsible for showing an
+  animation while the app is fetching
+  something.
+*/
+
 // Loader animation by Jules Forrest
 // https://freefrontend.com/css-loaders/
 export default {
-  name: 'Loading',
-  methods: {
-  },
-  props: {
-  }
+  name: 'Loading'
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 div {
   display: flex;

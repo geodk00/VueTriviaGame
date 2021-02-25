@@ -39,12 +39,18 @@
       <option value="hard">Hard</option>
     </select>
     <p>
-      <a v-on:click="handleClick" href="#">GO!</a>
+      <a @click="handleClick" href="#">GO!</a>
     </p>
   </div>
 </template>
 
 <script>
+/*
+  Component responsible for letting
+  the player customize their game
+
+  Emits the options as an event called 'start'
+*/
 export default {
   name: 'Options',
   data () {
@@ -58,24 +64,23 @@ export default {
     handleClick () {
       const options = { amount: this.amount }
 
+      // only add difficulty property if it isn't 'any'
       if (this.difficulty !== 'any') {
         options.difficulty = this.difficulty
       }
 
+      // only add category property if it isn't 'any'
       if (this.category !== 'any') {
         options.category = this.category
       }
 
       this.$emit('start', options)
     }
-  },
-  props: {
   }
 }
 </script>
 
 <style scoped>
-
 input {
   padding: 5px;
   margin: 5px 0px 10px;
@@ -93,11 +98,13 @@ select {
   border-radius: 10px;
   width: 100%;
 }
+
 label {
   display: block;
   text-align: left;
   width: 100%
 }
+
 .container {
   width: 40%;
   margin: auto;
@@ -120,5 +127,4 @@ a:hover {
 a:active {
   text-shadow: 1px 1px 2px black;
 }
-
 </style>

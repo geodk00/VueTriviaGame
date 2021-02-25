@@ -7,6 +7,9 @@
 </template>
 
 <script>
+/*
+  404 component
+*/
 export default {
   name: 'NotFound'
 }
@@ -14,6 +17,6 @@ export default {
 
 <style scoped>
 p {
-  font-size:5em;
+  font-size:5rem;
 }
 </style>

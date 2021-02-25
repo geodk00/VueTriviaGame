@@ -1,12 +1,21 @@
 <template>
-  <div class="hello">
+  <div>
     <h1>Welcome to the trivia game</h1>
-    <Options v-on:start="begin" v-if="!fetching"/>
+    <Options @start="begin" v-if="!fetching"/>
     <Loading v-show="fetching" />
   </div>
 </template>
 
 <script>
+/*
+  Component responsible for the view before starting
+  the game.
+
+  Displays the options component until the player clicks
+  go, and then displays a loading animation while waiting
+  on the api fetch.
+*/
+
 import Options from './../components/Options.vue'
 import Loading from './../components/Loading.vue'
 
@@ -16,8 +25,6 @@ export default {
     Options,
     Loading
   },
-  props: {
-  },
   data () {
     return {
       fetching: false
@@ -26,19 +33,16 @@ export default {
   methods: {
     async begin (event) {
       this.fetching = true
-      console.log(event)
+
       this.$store.commit('reset')
       await this.$store.dispatch('fetchQuestions', event)
+
       this.$router.push('/question/0')
     }
-  },
-  async created () {
   }
-
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
   margin: 40px 0 0;
@@ -54,5 +58,4 @@ li {
 a {
   color: #42b983;
 }
-
 </style>
