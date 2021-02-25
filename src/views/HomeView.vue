@@ -20,7 +20,7 @@ import OptionsComponent from './../components/OptionsComponent.vue'
 import LoadingComponent from './../components/LoadingComponent.vue'
 
 export default {
-  name: 'HomePage',
+  name: 'HomeView',
   components: {
     OptionsComponent,
     LoadingComponent
