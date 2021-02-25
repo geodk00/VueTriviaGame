@@ -7,13 +7,13 @@
       </p>
     <p>{{ this.question.question }}</p>
     </div>
-    <ul>
+    <div class="answerContainer">
       <Answer v-for="answer in question.answers"
               :key="answer.id"
               v-bind:answer="answer.answer"
               v-on:answer="handleAnswer"
-              :style="{'grid-area': answerStyle(answer.id)}"/>
-    </ul>
+              />
+    </div>
   </div>
 </template>
 
@@ -35,9 +35,6 @@ export default {
     }
   },
   methods: {
-    answerStyle (questionNumber) {
-      return 'a' + (questionNumber + 1)
-    },
     handleAnswer (selectedAnswer) {
       this.$store.commit('answerQuestion', { selectedAnswer, index: this.index })
 
@@ -81,18 +78,15 @@ p {
   padding: 10px;
 }
 
-ul {
-  list-style-type: none;
+.answerContainer {
   max-width: 40%;
   margin: auto;
-  padding-left: 0;
   margin-top: 10px;
-  margin-bottom: 10px;
 
   display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: auto;
-  grid-template-areas:  "a1 a2"
-                        "a3 a4";
+  row-gap: 5px;
+  column-gap: 5px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
 }
 </style>
