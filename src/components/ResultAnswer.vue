@@ -27,7 +27,6 @@ li {
   font-size: 0.9em;
   padding: 8px;
   border-radius: 5px;
-  border: 1px solid black;
   text-decoration: none;
   margin: 5px;
   background: #42b983;
