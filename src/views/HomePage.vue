@@ -1,8 +1,8 @@
 <template>
   <div>
     <h1>Welcome to the trivia game</h1>
-    <Options @start="begin" v-if="!fetching"/>
-    <Loading v-show="fetching" />
+    <OptionsComponent @start="begin" v-if="!fetching"/>
+    <LoadingComponent v-show="fetching" />
   </div>
 </template>
 
@@ -16,14 +16,14 @@
   on the api fetch.
 */
 
-import Options from './../components/Options.vue'
-import Loading from './../components/Loading.vue'
+import OptionsComponent from './../components/OptionsComponent.vue'
+import LoadingComponent from './../components/LoadingComponent.vue'
 
 export default {
   name: 'HomePage',
   components: {
-    Options,
-    Loading
+    OptionsComponent,
+    LoadingComponent
   },
   data () {
     return {
