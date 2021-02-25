@@ -37,21 +37,12 @@ li {
   content: '❌';
 }
 
-.wrong:after {
-  content: '❌';
-}
-
 .correct:before{
-  content: '👌';
-}
-.correct:after{
   content: '👌';
 }
 
 .right:before{
   content: '✔️';
 }
-.right:after{
-  content: '✔️';
-}
+
 </style>
