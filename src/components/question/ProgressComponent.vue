@@ -1,17 +1,18 @@
 <template>
   <div>
-    <div class="progress" :style="{width: this.percentage}"></div>
-    <div class="progressText">{{this.answers}} / {{this.questions}}</div>
+    <div class="progress" :style="{ width: percentage }"></div>
+    <div class="progressText">{{ answers }} / {{ questions }}</div>
   </div>
 </template>
 
 <script>
+/*
+  Component responsible for showing a
+  progress bar at the top of the page.
+*/
+
 export default {
-  name: 'Progress',
-  methods: {
-  },
-  props: {
-  },
+  name: 'ProgressComponent',
   computed: {
     percentage () {
       return this.$store.getters.getPercentageDone + '%'

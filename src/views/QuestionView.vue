@@ -1,22 +1,34 @@
 <template>
   <div>
-    <Progress />
-    <Question v-bind:question="currentQuestion" v-bind:index="id"/>
+    <ProgressComponent />
+    <QuestionComponent :question="currentQuestion" :questionIndex="id"/>
   </div>
 </template>
 
 <script>
-import Progress from '../components/Progress.vue'
-import Question from './../components/Question.vue'
+/*
+  Component responsible for the overall view
+  when the user is answering questions
+
+  Delegates the display of questions to
+  QuestionComponent and the progress to
+  ProgressComponent.
+
+  Takes the id of the question to display
+  from the route and tries to guard against
+  invalid states like the id not being a number,
+  the id being outside the number of questions or
+  the questions being empty.
+*/
+
+import ProgressComponent from '../components/question/ProgressComponent.vue'
+import QuestionComponent from './../components/question/QuestionComponent.vue'
 
 export default {
   name: 'QuestionView',
   components: {
-    Question,
-    Progress
-  },
-  props: {
-    msg: String
+    QuestionComponent,
+    ProgressComponent
   },
   computed: {
     id () {
@@ -26,25 +38,26 @@ export default {
       if (this.$store.state.questions[this.id]) {
         return this.$store.state.questions[this.id]
       }
+      // returning an empty object in case of id being invalid
+      // to supress vue errors appearing in the console just before
+      // the route guard takes effect and routes back to /
+      // (complaints from QuestionComponent about properties on undefined)
       return {}
     }
   },
   beforeRouteEnter (to, from, next) {
-    // guard against non-integer ids
+    // guard against non-integer or negative ids
     if (!(Number.parseInt(to.params.id) >= 0)) {
       next('/')
     }
-    // reroute if id > questions
+    // Reroute if no questions or id > questions.
+    // No access to 'this' in beforeRouteEnter so do
+    // it in the next route handler
     next(vm => {
-      if (Number.parseInt(to.params.id) > vm.$store.getters.getNumberOfQuestions) {
+      if (vm.$store.getters.getNumberOfQuestions === 0 || Number.parseInt(to.params.id) > vm.$store.getters.getNumberOfQuestions) {
         next('/')
       }
     })
-  },
-  watch: {
-    $route (to, from, next) {
-
-    }
   }
 }
 </script>

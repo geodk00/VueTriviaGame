@@ -1,10 +1,18 @@
 <template>
-    <div v-on:click="handleClick">{{ this.answer }}</div>
+    <div @click="handleClick">{{ answer }}</div>
 </template>
 
 <script>
+/*
+  Component responsible for showing a
+  single possible answer in a question.
+
+  Will emit an 'answer' event if clicked,
+  which will contain the text of the clicked
+  answer.
+*/
 export default {
-  name: 'Answer',
+  name: 'AnswerComponent',
   methods: {
     handleClick () {
       this.$emit('answer', this.answer)

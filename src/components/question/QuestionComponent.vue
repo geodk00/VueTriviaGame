@@ -1,47 +1,57 @@
 <template>
   <div>
     <div class="question">
-    <p class="small">
-      <span class="left">{{this.question.category}}</span>
-      <span class="right">{{this.question.difficulty}}</span>
+      <p class="small">
+        <span class="left">{{ question.category }}</span>
+        <span class="right">{{ question.difficulty }}</span>
       </p>
-    <p>{{ this.question.question }}</p>
+      <p>{{ this.question.question }}</p>
     </div>
     <div class="answerContainer">
-      <Answer v-for="answer in question.answers"
+      <AnswerComponent
+              v-for="answer in question.answers"
               :key="answer.id"
-              v-bind:answer="answer.answer"
-              v-on:answer="handleAnswer"
+              :answer="answer.answer"
+              @answer="handleAnswer"
               />
     </div>
   </div>
 </template>
 
 <script>
-import Answer from './../components/Answer.vue'
+/*
+  Component responsible for showing a
+  question and possible answers.
+
+  Delegates the display of answers to
+  AnswerComponent.
+
+  Takes in the question index and question
+  as props.
+
+  Navigates to the next question or the results
+  page on receiving an 'answer' event.
+*/
+
+import AnswerComponent from './AnswerComponent.vue'
 
 export default {
-  name: 'Question',
+  name: 'QuestionComponent',
   components: {
-    Answer
+    AnswerComponent
   },
   props: {
     question: Object,
-    index: Number
-  },
-  data () {
-    return {
-      answers: []
-    }
+    questionIndex: Number
   },
   methods: {
     handleAnswer (selectedAnswer) {
-      this.$store.commit('answerQuestion', { selectedAnswer, index: this.index })
+      this.$store.commit('answerQuestion', { selectedAnswer, index: this.questionIndex })
 
-      if (this.index >= this.$store.state.questions.length - 1) {
+      if (this.questionIndex >= this.$store.state.questions.length - 1) {
         this.$router.push('/result')
       } else {
-        this.$router.push('/question/' + (this.index + 1))
+        this.$router.push('/question/' + (this.questionIndex + 1))
       }
     }
   }
@@ -52,10 +62,12 @@ export default {
 p {
   font-size: 2rem;
 }
+
 .small {
   margin-top: 0;
   font-size: small;
 }
+
 .left {
   display:inline-block;
   text-align: left;
@@ -67,15 +79,15 @@ p {
   text-align: right;
   width: 50%;
 }
+
 .question {
   background-color: #42b983;
   box-shadow: 1px 1px rgb(161, 157, 161);
   border-radius: 10px;
   width: 40%;
   min-width: 300px;
+  margin: auto;
   margin-top: 10px;
-  margin-left: auto;
-  margin-right: auto;
   padding: 10px;
 }
 
