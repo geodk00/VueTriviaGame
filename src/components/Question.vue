@@ -50,7 +50,7 @@ export default {
 
 <style scoped>
 p {
-  font-size: 1.4em;
+  font-size: 2rem;
 }
 .small {
   margin-top: 0;

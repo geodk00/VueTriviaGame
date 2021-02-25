@@ -24,7 +24,7 @@ export default {
 
 <style scoped>
 li {
-  font-size: 0.9em;
+  font-size: 1.2rem;
   padding: 8px;
   border-radius: 5px;
   text-decoration: none;

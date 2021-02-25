@@ -49,7 +49,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 p {
-  font-size: 1em;
+  font-size: 1.7rem;
   background-color: #42b983;
   /*border: 1px solid #56db9f;*/
   box-shadow: 1px 1px rgb(161, 157, 161);
