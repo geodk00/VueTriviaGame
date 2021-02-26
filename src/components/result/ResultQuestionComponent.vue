@@ -36,8 +36,7 @@ export default {
     ResultAnswerComponent
   },
   props: {
-    question: Object,
-    questionIndex: Number
+    question: Object
   },
   data () {
     return {
@@ -45,7 +44,7 @@ export default {
     }
   },
   mounted () {
-    const answered = this.$store.state.answers[this.questionIndex]
+    const answered = this.$store.state.answers[this.question.id]
     const correct = this.question.correct_answer
 
     this.answers = this.question.answers.map(answer => {

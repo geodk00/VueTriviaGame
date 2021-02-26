@@ -1,7 +1,7 @@
 <template>
   <div>
     <ProgressComponent />
-    <QuestionComponent :question="currentQuestion" :questionIndex="id"/>
+    <QuestionComponent :question="currentQuestion"/>
   </div>
 </template>
 

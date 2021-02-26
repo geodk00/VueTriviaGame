@@ -41,17 +41,16 @@ export default {
     AnswerComponent
   },
   props: {
-    question: Object,
-    questionIndex: Number
+    question: Object
   },
   methods: {
     handleAnswer (selectedAnswer) {
-      this.$store.commit('answerQuestion', { selectedAnswer, index: this.questionIndex })
+      this.$store.commit('answerQuestion', { selectedAnswer, index: this.question.id })
 
-      if (this.questionIndex >= this.$store.state.questions.length - 1) {
+      if (this.question.id >= this.$store.state.questions.length - 1) {
         this.$router.push('/result')
       } else {
-        this.$router.push('/question/' + (this.questionIndex + 1))
+        this.$router.push('/question/' + (this.question.id + 1))
       }
     }
   }
