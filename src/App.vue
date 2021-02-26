@@ -10,12 +10,7 @@
 import './assets/css/styles.css'
 
 export default {
-  name: 'App',
-  computed: {
-    score () {
-      return this.$store.getters.getScore
-    }
-  }
+  name: 'App'
 }
 </script>
 

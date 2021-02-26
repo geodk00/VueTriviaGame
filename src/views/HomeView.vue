@@ -31,12 +31,9 @@ export default {
     }
   },
   methods: {
-    async begin (event) {
+    async begin (options) {
       this.fetching = true
-
-      this.$store.commit('reset')
-      await this.$store.dispatch('fetchQuestions', event)
-
+      await this.$store.dispatch('fetchQuestions', options)
       this.$router.push('/question/0')
     }
   }
