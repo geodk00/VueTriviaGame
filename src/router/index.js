@@ -10,7 +10,7 @@ export default new Router({
   mode: 'history',
   routes: [
     { path: '/', component: HomeView },
-    { path: '/question/:id', component: QuestionView },
+    { path: '/question/:id(\\d+)', component: QuestionView },
     { path: '/result', component: ResultView },
     { path: '*', component: NotFoundComponent }
   ]
