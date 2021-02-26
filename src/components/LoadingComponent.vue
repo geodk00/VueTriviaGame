@@ -24,6 +24,7 @@ export default {
 
 <style scoped>
 div {
+  font-size: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
