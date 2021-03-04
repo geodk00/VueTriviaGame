@@ -1,6 +1,12 @@
 # Trivia Game
-Trivia game implemented in Vue with Vue Router and Vuex.
+Trivia game implemented in Vue with Vue Router and Vuex. Questions are fetched from the https://opentdb.com/ api. 
 
+## Running
+After cloning the repo, run 
+```
+ npm install && npm run serve 
+ ``` 
+to start a local server with the app
 ## Features
 - Customise questions (Difficulty/Category/Number of questions)
 - Progress bar during game
